@@ -1,0 +1,39 @@
+body {
+  background-image: url("assets/bg.jpg");
+  background-repeat: round;
+}
+
+.main-para {
+  text-align: center;
+}
+
+.main-title {
+  color: rgb(154, 58, 58);
+  font-family: Poppins;
+  text-align: center;
+  margin-top: 10rem;
+}
+
+.sub-title {
+  color: rgb(154, 58, 58);
+  font-family: Poppins;
+  text-align: center;
+}
+
+.container {
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
+}
+#XMLID_226_ {
+  animation: draw 10s forwards;
+}
+
+@keyframes draw {
+  from {
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
