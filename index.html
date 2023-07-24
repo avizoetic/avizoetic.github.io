@@ -1,35 +1,86 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>US states data visualization</title>
   </head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .column {
+      float: left;
+      width: 50%;
+      padding: 10px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    #resetbtn {
+      background-color: #ddd;
+      color: black;
+      border-radius: 50%;
+      text-decoration: none;
+      display: inline-block;
+      padding: 8px 16px;
+    }
+    #resetbtn:hover {
+      background-color: #f1f1f1;
+      color: black;
+    }
+  </style>
   <body>
-<!--     <h2 class="main-title">Hi Maya</h1>
-        <div class="text-center">
-            <a href="pages/page2.html" class="btn btn-primary mt-2" role="button" aria-pressed="true">Say Hi back</a>
-        </div> -->
-    <h1> Example page </h1>
-    
+    <a id="resetbtn"> &#8249; </a>
+    <div class="box">
+      <div class="row">
+        <div class="column">
+          <h2 id="maptitle"></h2>
+          <svg id="legendsvg" width="30%"></svg>
+          <svg id="mapsvg"></svg>
+        </div>
+        <div class="column">
+          <h2 id="bartitle"></h2>
+          <div>
+            <input
+              type="radio"
+              name="field"
+              id="BIRTHS2015"
+              value="BIRTHS2015"
+              checked
+            />
+            <label for="BIRTHS2015">Birth2015</label>
+            <input
+              type="radio"
+              name="field"
+              id="DEATHS2015"
+              value="DEATHS2015"
+            />
+            <label for="DEATHS2015">Death2015</label>
+          </div>
+          <div style="overflow-y: scroll; max-height: 80vh">
+            <svg
+              id="barsvg"
+              style="overflow-y: scroll"
+              height="100%"
+              width="100%"
+            ></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <button id="resetbtn">back</button> -->
   </body>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+  <script src="https://unpkg.com/topojson-client@3"></script>
+  <script src="/utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script>
+  <script defer src="/index.js"></script>
 </html>
